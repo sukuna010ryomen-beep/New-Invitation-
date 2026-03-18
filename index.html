@@ -343,9 +343,9 @@ footer{background:#54132e;padding:40px;text-align:center;color:#fff;}
   </div>
 </div>
 
-<audio id="music" loop preload="auto">
-  <source src="https://raw.githubusercontent.com/sukuna010ryomen-beep/New-Invitation/main/Smartphone wedding invitation with music 6(MP3_160K).mp3" type="audio/mpeg">
-</audio>
+<audio id="bgMusic" loop>
+  <source src="https://raw.githubusercontent.com/sukuna010ryomen-beep/New-Invitation-/main/Smartphone wedding invitation with music 6(MP3_160K).mp3" type="audio/mpeg">
+</audio>>
 <!-- SOUND BUTTON -->
 <div id="soundBtn" class="sound-btn paused" title="Play / Pause Music">
   <div class="bar"></div>
@@ -585,6 +585,12 @@ const timelineObserver = new IntersectionObserver((entries) => {
 timelineItems.forEach(item => {
   timelineObserver.observe(item);
 });
+<script>
+document.addEventListener("click", function () {
+  const music = document.getElementById("bgMusic");
+  music.play();
+}, { once: true });
+</script>
 </script>
 
 </body>
