@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-(function(){ emailjs.init("YOUR_PUBLIC_KEY"); })();
+emailjs.init("YOUR_PUBLIC_KEY");
 </script>
 
 <style>
@@ -135,7 +135,7 @@ h2{font-family:'Cinzel',serif;color:#c78fa6;margin-bottom:40px;font-size:40px;}
 /* Bg image + gradient overlay */
 body{
   background: linear-gradient(to bottom,#f7c6da,#cc5284),
-              url("https://i.postimg.cc/nLdBsmWc/93a8e641-bd38-41ac-a4dc-58b862b2ecb9.jp");
+              url("https://i.postimg.cc/nLdBsmWc/93a8e641-bd38-41ac-a4dc-58b862b2ecb9.jpg");
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
@@ -189,7 +189,6 @@ body{
 .countdown{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
 .count-box{background:#54132e;padding:20px;border-radius:12px;box-shadow:0 0 25px rgba(199,143,166,0.4);color:#fff;}
 
-
 /* TIMELINE */
 .timeline-pro{
   max-width:600px;
@@ -201,6 +200,9 @@ body{
 .timeline-item-pro{
   position:relative;
   margin-bottom:50px;
+  opacity:0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease;
 }
 .timeline-item-pro::before{
   content:"";
@@ -232,20 +234,7 @@ body{
 .timeline-item-pro p{
   color:#e0c6d0;
 }
-.timeline-section h2 {
-    color: #54132e;  /* your dark theme color */
-}
-/* TIMELINE ITEM ANIMATION */
-.timeline-item-pro {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: all 0.8s ease;
-}
-
-.timeline-item-pro.show {
-  opacity: 1;
-  transform: translateX(0);
-}
+.timeline-section h2 { color: #54132e; }
 /* MAP */
 .location-box {
   max-width: 700px;
@@ -284,9 +273,7 @@ body{
 }
 
 /* RSVP */
-.rsvp-section h2 {
-    color: #54132e; /* replace with any color you want */
-}
+.rsvp-section h2 { color: #54132e; }
 .rsvp-section{background:linear-gradient(to bottom,#c78fa6,#54132e);padding:100px 20px;}
 .rsvp-container{max-width: 500px;margin:auto;background:#54132e;padding:50px 40px;border-radius: 20px;box-shadow: 0 0 50px rgba(199,143,166,0.3);}
 .input-group{position: relative;margin-bottom: 25px;}
@@ -323,6 +310,7 @@ footer{background:#54132e;padding:40px;text-align:center;color:#fff;}
 </style>
 </head>
 <body>
+
 <!-- HEART ANIMATION -->
 <div class="heart-intro" id="heartIntro">
   <svg viewBox="0 0 512 512">
@@ -334,6 +322,7 @@ footer{background:#54132e;padding:40px;text-align:center;color:#fff;}
     </text>
   </svg>
 </div>
+
 <!-- ENVELOPE -->
 <div class="intro" id="intro">
   <div class="envelope-container" id="envelope" onclick="openEnvelope()">
@@ -343,12 +332,13 @@ footer{background:#54132e;padding:40px;text-align:center;color:#fff;}
   </div>
 </div>
 
+<!-- MUSIC -->
 <audio id="bgMusic" loop>
   <source src="https://raw.githubusercontent.com/sukuna010ryomen-beep/New-Invitation-/main/Smartphone wedding invitation with music 6(MP3_160K).mp3" type="audio/mpeg">
-</audio>>
+</audio>
+
 <!-- SOUND BUTTON -->
 <div id="soundBtn" class="sound-btn paused" title="Play / Pause Music">
-  <div class="bar"></div>
   <div class="bar"></div>
   <div class="bar"></div>
   <div class="bar"></div>
@@ -376,31 +366,31 @@ footer{background:#54132e;padding:40px;text-align:center;color:#fff;}
 </div>
 </div>
 </section>
-<!--Countdown-->
+
+<!-- Countdown -->
 <section class="reveal">
-  <h2>Countdown To Our Big Day</h2>
-  <div class="countdown">
-    <div class="count-box">
-      <h3 id="days">00</h3>
-      <p>Days</p>
-    </div>
-    <div class="count-box">
-      <h3 id="hours">00</h3>
-      <p>Hours</p>
-    </div>
-    <div class="count-box">
-      <h3 id="minutes">00</h3>
-      <p>Minutes</p>
-    </div>
-    <div class="count-box">
-      <h3 id="seconds">00</h3>
-      <p>Seconds</p>
-    </div>
-  </div>
+<h2>Countdown To Our Big Day</h2>
+<div class="countdown">
+<div class="count-box">
+<h3 id="days">00</h3>
+<p>Days</p>
+</div>
+<div class="count-box">
+<h3 id="hours">00</h3>
+<p>Hours</p>
+</div>
+<div class="count-box">
+<h3 id="minutes">00</h3>
+<p>Minutes</p>
+</div>
+<div class="count-box">
+<h3 id="seconds">00</h3>
+<p>Seconds</p>
+</div>
+</div>
 </section>
 
 <!-- TIMELINE -->
-<section class="reveal">
 <section class="timeline-section reveal">
 <h2>Wedding Timeline</h2>
 <div class="timeline-pro">
@@ -429,169 +419,158 @@ footer{background:#54132e;padding:40px;text-align:center;color:#fff;}
 
 <!-- MAP -->
 <section class="reveal">
-  <h2>Wedding Location</h2>
-  <div class="location-box">
-    <h3>The Grand Palace</h3>
-    <p>123 Celebration Avenue<br>Hikkaduwa, Sri Lanka</p>
-    <a href="https://maps.google.com" target="_blank" class="map-btn">View on Google Maps</a>
-    <div class="map-frame">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.9280565052673!2d80.12081516394619!3d6.140366918036546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae177539eb6d4a1%3A0x90cfbbcc38b8ceb!2sHotel%20Grand%20Palace!5e0!3m2!1sen!2slk!4v1771641051408!5m2!1sen!2slk" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-  </div>
+<h2>Wedding Location</h2>
+<div class="location-box">
+<h3>The Grand Palace</h3>
+<p>123 Celebration Avenue<br>Hikkaduwa, Sri Lanka</p>
+<a href="https://maps.google.com" target="_blank" class="map-btn">View on Google Maps</a>
+<div class="map-frame">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.9280565052673!2d80.12081516394619!3d6.140366918036546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae177539eb6d4a1%3A0x90cfbbcc38b8ceb!2sHotel%20Grand%20Palace!5e0!3m2!1sen!2slk!4v1771641051408!5m2!1sen!2slk" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+</div>
 </section>
 
 <!-- RSVP -->
 <section class="rsvp-section reveal">
-<h2>Kindly Respond</h2>
-<div class="rsvp-container">
-<form id="rsvp-form">
-<div class="input-group">
-<input type="text" name="name" required>
-<label>Full Name</label>
-</div>
-<div class="input-group">
-<input type="email" name="email" required>
-<label>Email Address</label>
-</div>
-<div class="input-group">
-<select name="attendance" required>
-<option value="">Will you attend?</option>
-<option value="Yes, joyfully attending">Yes, joyfully attending</option>
-<option value="Regretfully cannot attend">Regretfully cannot attend</option>
-</select>
-</div>
-<div class="input-group">
-<textarea name="message" rows="4"></textarea>
-<label>Message for the Couple</label>
-</div>
-<button type="submit" class="rsvp-btn">Send Response</button>
-<p id="rsvp-status"></p>
-</form>
-</div>
+  <h2>Kindly Respond</h2>
+  <div class="rsvp-container">
+    <form id="rsvp-form">
+      <div class="input-group">
+        <input type="text" name="name" required>
+        <label>Full Name</label>
+      </div>
+      <div class="input-group">
+        <input type="email" name="email" required>
+        <label>Email Address</label>
+      </div>
+      <div class="input-group">
+        <select name="attendance" required>
+          <option value="">Will you attend?</option>
+          <option value="Yes, joyfully attending">Yes, joyfully attending</option>
+          <option value="Regretfully cannot attend">Regretfully cannot attend</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <textarea name="message" rows="4"></textarea>
+        <label>Message for the Couple</label>
+      </div>
+      <button type="submit" class="rsvp-btn">Send Response</button>
+      <p id="rsvp-status"></p>
+    </form>
+  </div>
 </section>
 
-<footer>Email: arunodkariyawasam@gmail.com | Phone: +94 72 312 2594</footer>
+<footer>
+  Email: arunodkariyawasam@gmail.com | Phone: +94 72 312 2594
+</footer>
 
 <script>
-function openEnvelope(){
-  document.getElementById("envelope").classList.add("open");
-  document.getElementById("music").play().catch(()=>{});
-  setTimeout(()=>{document.getElementById("intro").classList.add("hide");},2000);
-}
+  // Open envelope and play music
+  const soundBtn = document.getElementById('soundBtn');
+  const music = document.getElementById('bgMusic');
+  let isPlaying = false;
 
-window.addEventListener("scroll",()=>{
-  document.querySelectorAll(".reveal").forEach(el=>{
-    if(el.getBoundingClientRect().top < window.innerHeight-100){
-      el.classList.add("active");
-    }
-  });
-});
-
-document.getElementById("rsvp-form").addEventListener("submit", function(e){
-  e.preventDefault();
-  emailjs.sendForm('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID',this)
-  .then(()=>{
-    document.getElementById("rsvp-status").innerText="🎉 Thank you! Your RSVP has been sent.";
-    this.reset();
-  },()=>{
-    document.getElementById("rsvp-status").innerText="⚠️ Something went wrong.";
-  });
-});
-const soundBtn = document.getElementById('soundBtn');
-const music = document.getElementById('music');
-let isPlaying = false;
-
-function showSoundBtn() {
-  soundBtn.classList.add('show');
-}
-
-// Toggle play/pause on click
-soundBtn.addEventListener('click', () => {
-  isPlaying = !isPlaying;
-  if (isPlaying) {
-    music.play().catch(() => {});
-    soundBtn.classList.remove('paused');
-  } else {
-    music.pause();
-    soundBtn.classList.add('paused');
+  function showSoundBtn() {
+    soundBtn.classList.add('show');
   }
-});
 
-// Show the sound button after envelope opens
-function openEnvelope(){
-  const envelopeEl = document.getElementById("envelope");
-  envelopeEl.classList.add("open");
-  music.play().catch(()=>{});
-  setTimeout(() => { document.getElementById("intro").classList.add("hide"); }, 2000);
+  function openEnvelope() {
+    const envelopeEl = document.getElementById("envelope");
+    envelopeEl.classList.add("open");
+    music.play().catch(()=>{});
+    setTimeout(() => { document.getElementById("intro").classList.add("hide"); }, 2000);
+    setTimeout(showSoundBtn, 1500);
+    isPlaying = true;
+    soundBtn.classList.remove('paused');
+  }
 
-  // Show sound button
-  setTimeout(showSoundBtn, 1500); // delay so it appears after opening animation
-  // set playing state
-  isPlaying = true;
-  soundBtn.classList.remove('paused');
-}
-// Flower petals
-function createPetal(){
-  const petal = document.createElement("div");
-  petal.classList.add("petal");
-  petal.style.left = Math.random() * 100 + "vw";
-  const size = Math.random() * 15 + 5;
-  petal.style.width = size + "px";
-  petal.style.height = size + "px";
-  petal.style.background = `rgba(199,143,166,${Math.random()*0.5 + 0.2})`;
-  petal.style.animationDuration = (Math.random() * 7 + 5) + "s";
-  document.body.appendChild(petal);
-  setTimeout(()=> petal.remove(), 12000);
-}
-setInterval(createPetal, 250);
-// Countdown
-const weddingDate = new Date("August 31, 2026 09:00:00").getTime();
-
-setInterval(function(){
-  const now = new Date().getTime();
-  const distance = weddingDate - now;
-
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  document.getElementById("days").innerText = days;
-  document.getElementById("hours").innerText = hours;
-  document.getElementById("minutes").innerText = minutes;
-  document.getElementById("seconds").innerText = seconds;
-},1000);
-
-// Auto-hide heart after 4 seconds
-setTimeout(() => {
-  const heart = document.getElementById('heartIntro');
-  heart.style.opacity = '0';
-  heart.style.pointerEvents = 'none';
-}, 4000); // 4 seconds
-
-// Timeline inside animation
-const timelineItems = document.querySelectorAll('.timeline-item-pro');
-
-const timelineObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
+  // Toggle play/pause music
+  soundBtn.addEventListener('click', () => {
+    isPlaying = !isPlaying;
+    if (isPlaying) {
+      music.play().catch(() => {});
+      soundBtn.classList.remove('paused');
+    } else {
+      music.pause();
+      soundBtn.classList.add('paused');
     }
   });
-}, {
-  threshold: 0.3
-});
 
-timelineItems.forEach(item => {
-  timelineObserver.observe(item);
-});
-<script>
-document.addEventListener("click", function () {
-  const music = document.getElementById("bgMusic");
-  music.play();
-}, { once: true });
-</script>
-</script>
+  // Show sections on scroll
+  window.addEventListener("scroll", () => {
+    document.querySelectorAll(".reveal").forEach(el => {
+      if(el.getBoundingClientRect().top < window.innerHeight - 100){
+        el.classList.add("active");
+      }
+    });
+  });
 
+  // RSVP form submission via EmailJS
+  document.getElementById("rsvp-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    emailjs.sendForm('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID',this)
+      .then(() => {
+        document.getElementById("rsvp-status").innerText = "🎉 Thank you! Your RSVP has been sent.";
+        this.reset();
+      }, () => {
+        document.getElementById("rsvp-status").innerText = "⚠️ Something went wrong.";
+      });
+  });
+
+  // Flower petals animation
+  function createPetal(){
+    const petal = document.createElement("div");
+    petal.classList.add("petal");
+    petal.style.left = Math.random() * 100 + "vw";
+    const size = Math.random() * 15 + 5;
+    petal.style.width = size + "px";
+    petal.style.height = size + "px";
+    petal.style.background = `rgba(199,143,166,${Math.random()*0.5 + 0.2})`;
+    petal.style.animationDuration = (Math.random() * 7 + 5) + "s";
+    document.body.appendChild(petal);
+    setTimeout(()=> petal.remove(), 12000);
+  }
+  setInterval(createPetal, 250);
+
+  // Countdown
+  const weddingDate = new Date("August 31, 2026 09:00:00").getTime();
+  setInterval(function(){
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+  }, 1000);
+
+  // Auto-hide heart intro after 4 seconds
+  setTimeout(() => {
+    const heart = document.getElementById('heartIntro');
+    heart.style.opacity = '0';
+    heart.style.pointerEvents = 'none';
+  }, 4000);
+
+  // Timeline items animation
+  const timelineItems = document.querySelectorAll('.timeline-item-pro');
+  const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.3 });
+  timelineItems.forEach(item => timelineObserver.observe(item));
+
+  // Play music on first click (mobile autoplay fix)
+  document.addEventListener("click", function () {
+    music.play();
+  }, { once: true });
+</script>
 </body>
 </html>
